@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component}       from '@angular/core';
+import {AngularFireAuth} from "@angular/fire/compat/auth";
 
 @Component({
              selector: 'app-root',
@@ -6,5 +7,7 @@ import {Component} from '@angular/core';
              styleUrls: ['./app.component.scss']
            })
 export class AppComponent {
-  title = 'app';
+  title = 'Quiz';
+
+  constructor(public fbAuth: AngularFireAuth) {}
 }

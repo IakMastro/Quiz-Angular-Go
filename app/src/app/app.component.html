@@ -1,9 +1,23 @@
 <header class="container-flex">
   <nav class="navbar navbar-light">
-    <h1>Quiz</h1>
-    <div class="navbar-item ml-auto">
-      <button class="btn btn-outline-danger">Logout</button>
+    <a routerLink="/" class="navbar-brand">
+      {{ title }}
+    </a>
+    <div *ngIf="fbAuth.user | async as user">
+      <nav>
+        <ul>
+          <li><a routerLink="/">Home</a></li>
+          <li><a (click)="fbAuth.signOut()">Logout</a></li>
+        </ul>
+      </nav>
     </div>
   </nav>
 </header>
-<router-outlet></router-outlet>
+
+<div *ngIf="fbAuth.user | async as user; else showLogin">
+  <router-outlet></router-outlet>
+</div>
+
+<ng-template #showLogin>
+  <firebase-ui></firebase-ui>
+</ng-template>
