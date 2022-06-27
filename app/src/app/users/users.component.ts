@@ -7,21 +7,12 @@ import LoginUserDto        from "../dto/user/login.user.dto";
              styleUrls: ['./users.component.scss']
            })
 export class UsersComponent implements OnInit {
-  user: LoginUserDto;
-  register: boolean;
+  active: number;
 
   constructor() {
-    this.user = {
-      email: '',
-      password: ''
-    }
-    this.register = true;
+    this.active = 1;
   }
 
   ngOnInit(): void {
-  }
-
-  toggleRegister() {
-    this.register = !this.register;
   }
 }
