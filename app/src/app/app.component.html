@@ -1,8 +1,6 @@
 <header class="container-flex">
   <nav class="navbar navbar-light">
     <div *ngIf="fbAuth.user | async as user" class="dropdown d-xl-none d-lg-none mr-auto">
-      <img src="https://png.icons8.com/windows/32/000000/menu.png" data-toggle="dropdown" data-target="#navd"
-           aria-haspopup="true" aria-expanded="false">
       <div class="dropdown-menu hb" aria-labelledby="navd">
         <a routerLink="/">Home</a>]
         <a (click)="fbAuth.signOut()">Logout</a>
