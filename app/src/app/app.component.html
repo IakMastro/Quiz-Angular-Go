@@ -1,15 +1,22 @@
 <header class="container-flex">
   <nav class="navbar navbar-light">
-    <a routerLink="/" class="navbar-brand">
-      {{ title }}
+    <div *ngIf="fbAuth.user | async as user" class="dropdown d-xl-none d-lg-none mr-auto">
+      <img src="https://png.icons8.com/windows/32/000000/menu.png" data-toggle="dropdown" data-target="#navd"
+           aria-haspopup="true" aria-expanded="false">
+      <div class="dropdown-menu hb" aria-labelledby="navd">
+        <a routerLink="/">Home</a>]
+        <a (click)="fbAuth.signOut()">Logout</a>
+      </div>
+    </div>
+    <a routerLink="/" class="navbar-brand py-0 pl-5">
+      <h1>{{title}}</h1>
     </a>
     <div *ngIf="fbAuth.user | async as user">
-      <nav>
-        <ul>
-          <li><a routerLink="/">Home</a></li>
-          <li><a (click)="fbAuth.signOut()">Logout</a></li>
-        </ul>
-      </nav>
+      <span class="navbar-item bc d-none d-xl-block d-lg-block py-0">
+        <a class="pl-5" routerLink="/">Home</a>
+        <button style="margin-left: 60rem" class="btn btn-outline-primary" (click)="fbAuth.signOut()">Logout
+        </button>
+      </span>
     </div>
   </nav>
 </header>
