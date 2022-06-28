@@ -27,7 +27,6 @@ export class QuizModalComponent implements OnInit {
   constructor(private modalService: NgbModal, private quizService: QuizService) {
     this.quiz = {
       questions: [],
-      correctAnswersIndex: []
     };
   }
 

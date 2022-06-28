@@ -10,7 +10,7 @@
     [collectionSize]="questions.length"
   >
   </ngb-pagination>
-  <h5>{{questions[page].question}}</h5>
+  <h5>{{questions[page - 1].question}}</h5>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close

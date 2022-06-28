@@ -1,15 +1,17 @@
-import { Injectable }   from '@angular/core';
-import {Observable, of} from "rxjs";
-import {Quiz}           from "../interfaces/Quiz";
-import {QUIZ}         from "./mock-data";
+import {Injectable}              from '@angular/core';
+import {Observable}              from "rxjs";
+import {Quiz}                    from "../interfaces/Quiz";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root'
-})
+              providedIn: 'root'
+            })
 export class QuizService {
+  private quizUrl = 'http://localhost:8080/';
+
   getQuiz(): Observable<Quiz> {
-    return of(QUIZ);
+    return this.http.get<Quiz>(this.quizUrl)
   }
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 }

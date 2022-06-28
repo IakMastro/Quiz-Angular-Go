@@ -1,0 +1,34 @@
+{
+  "questions": [
+    {
+      "question": "Which song is more catchy?",
+      "answers": ["Billie Jean", "Thriller", "Smooth Criminal", "Beat It"],
+      "correct": 0
+    },
+    {
+      "question": "Who is the most prolific songwriter?",
+      "answers": ["David Bowie", "John Lennon", "Neal Morse", "Peter Gabriel"],
+      "correct": 0
+    },
+    {
+      "question": "What is the name of the best drummer?",
+      "answers": ["Ringo Starr", "Lars Ulrich", "Phil Collins", "Mike Portnoy"],
+      "correct": 3
+    },
+    {
+      "question": "What is the most sold album of all time?",
+      "answers": ["Dark Side of the Moon", "Back in Black", "Thriller", "Abbey Road"],
+      "correct": 2
+    },
+    {
+      "question": "What is the best rock band in the world?",
+      "answers": ["Metallica", "Transatlantic", "AC/DC", "The Rolling Stones"],
+      "correct": 1
+    },
+    {
+      "question": "Who composed the Indiana Jones OST?",
+      "answers": ["John Williams", "Hans Zimmer", "Danny Elfman", "Sergio Leone"],
+      "correct": 0
+    }
+  ]
+}

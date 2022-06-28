@@ -1,10 +1,10 @@
 export interface Quiz {
   questions: Question[];
-  correctAnswersIndex: number[];
+  selectedAnswerIndex?: number;
 }
 
 export interface Question {
   question: string;
   answers: string[];
-  selectedAnswerIndex?: number;
+  correct: number;
 }
