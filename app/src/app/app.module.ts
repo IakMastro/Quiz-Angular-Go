@@ -11,6 +11,7 @@ import {AngularFireAuthModule}                  from "@angular/fire/compat/auth"
 import {firebase, firebaseui, FirebaseUIModule} from "firebaseui-angular";
 import {HomeModule}                             from "./home/home.module";
 import {HttpClientModule}                       from "@angular/common/http";
+import {QuizModule}                             from "./quiz/quiz.module";
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -35,7 +36,8 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
               FirebaseUIModule.forRoot(firebaseUiAuthConfig)
             ],
             providers: [
-              HomeModule
+              HomeModule,
+              QuizModule
             ],
             bootstrap: [AppComponent]
           })

@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Question - {{currentQuestion + 1}}</h5>
+    <p class="card-text"><b>Time Reaming: </b>{{countdown}} seconds
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{quiz.questions[currentQuestion].question}}</h5>
+        <div class="card-text">
+          <div class="form-group">
+            <div class="radio" *ngFor="let answer of quiz.questions[currentQuestion].answers">
+              <label>
+                <input type="radio" name="optionsRadios" (click)="selectAnswer(answer)" [value]="answer">
+                {{answer}}
+              </label>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary" (click)="submit()">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AngularFireAuth}   from "@angular/fire/compat/auth";
 import {UserData}          from "../../interfaces/UserData";
 import {UserDataService}   from "../user-data.service";
+import {Router}            from "@angular/router";
 
 @Component({
              selector: 'app-home',
@@ -11,7 +12,11 @@ import {UserDataService}   from "../user-data.service";
 export class HomeComponent implements OnInit {
   userData: UserData;
 
-  constructor(public fbAuth: AngularFireAuth, private userDataService: UserDataService) {
+  constructor(
+    public fbAuth: AngularFireAuth,
+    private userDataService: UserDataService,
+    private router: Router
+  ) {
     this.userData = {
       id: "",
       totalScore: 0,
@@ -27,5 +32,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserData();
+  }
+
+  giveQuiz() {
+    this.router.navigate(['/quiz']);
   }
 }

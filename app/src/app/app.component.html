@@ -12,7 +12,8 @@
     <div *ngIf="fbAuth.user | async as user">
       <span class="navbar-item bc d-none d-xl-block d-lg-block py-0">
         <a class="pl-5" routerLink="/">Home</a>
-        <button style="margin-left: 60rem" class="btn btn-outline-primary" (click)="fbAuth.signOut()">Logout
+        <button style="margin-left: 60rem" class="btn btn-outline-primary" (click)="fbAuth.signOut()">
+          Logout
         </button>
       </span>
     </div>

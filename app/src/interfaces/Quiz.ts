@@ -1,6 +1,6 @@
 export interface Quiz {
   questions: Question[];
-  selectedAnswerIndex?: number;
+  selectedAnswerIndex: number[];
 }
 
 export interface Question {

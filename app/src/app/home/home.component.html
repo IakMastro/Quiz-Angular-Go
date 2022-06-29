@@ -2,7 +2,6 @@
   <div class="card-body" *ngIf="fbAuth.user | async as user;">
     <h5 class="card-title">Welcome, {{user.displayName}}!</h5>
     <p class="card-text">Total Score: {{userData.totalScore}}/{{userData.maxPoints}}</p>
-
-    <app-quiz-modal></app-quiz-modal>
+    <button class="btn btn-primary" (click)="giveQuiz()">Give New Quiz</button>
   </div>
 </div>
