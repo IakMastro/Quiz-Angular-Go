@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {QuizService}       from "../quiz.service";
-import {Quiz}              from "../../interfaces/Quiz";
-import {timer}             from "rxjs";
+import {Component, OnInit}        from '@angular/core';
+import {QuizService}              from "../quiz.service";
+import {Quiz}                     from "../../interfaces/Quiz";
+import {timer}                    from "rxjs";
+import {NavigationExtras, Router} from "@angular/router";
 
 @Component({
              selector: 'app-quiz',
@@ -13,7 +14,7 @@ export class QuizComponent implements OnInit {
   countdown: number;
   currentQuestion: number;
 
-  constructor(private quizService: QuizService) {
+  constructor(private quizService: QuizService, private router: Router) {
     this.quiz = {
       questions: [],
       selectedAnswerIndex: []
@@ -25,9 +26,7 @@ export class QuizComponent implements OnInit {
       .subscribe(() => {
         this.countdown--;
 
-        if (this.currentQuestion >= this.quiz.questions.length) {
-          this.submit();
-        } else if (this.countdown <= 0) {
+        if (this.countdown <= 0) {
           this.countdown = 10;
           this.quiz.selectedAnswerIndex[this.currentQuestion] = -1;
           this.currentQuestion++;
@@ -59,6 +58,12 @@ export class QuizComponent implements OnInit {
   }
 
   submit(): void {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        score: this.calculateScore()
+      }
+    };
 
-  }
+    this.router.navigate(['/'], navigationExtras);
+  };
 }

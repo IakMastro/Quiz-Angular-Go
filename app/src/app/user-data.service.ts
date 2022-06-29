@@ -7,9 +7,14 @@ import {Observable, of} from "rxjs";
   providedIn: 'root'
 })
 export class UserDataService {
+  userData: UserData = USER_DATA;
   getUserData(): Observable<UserData> {
-    return of(USER_DATA);
+    return of(this.userData);
   }
 
   constructor() { }
+
+  updateUserData(userData: UserData) {
+    this.userData = userData;
+  }
 }

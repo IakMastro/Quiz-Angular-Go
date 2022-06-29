@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AngularFireAuth}   from "@angular/fire/compat/auth";
 import {UserData}          from "../../interfaces/UserData";
-import {UserDataService}   from "../user-data.service";
-import {Router}            from "@angular/router";
+import {UserDataService}          from "../user-data.service";
+import {NavigationExtras, Router} from "@angular/router";
 
 @Component({
              selector: 'app-home',
@@ -11,6 +11,7 @@ import {Router}            from "@angular/router";
            })
 export class HomeComponent implements OnInit {
   userData: UserData;
+  score?: number;
 
   constructor(
     public fbAuth: AngularFireAuth,
@@ -22,6 +23,14 @@ export class HomeComponent implements OnInit {
       totalScore: 0,
       maxPoints: 0
     };
+
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation != null) {
+      const state = navigation.extras.state as {
+        score: number
+      }
+      this.score = state.score;
+    }
   }
 
   getUserData(): void {
@@ -32,6 +41,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserData();
+
+    if (this.score != undefined) {
+      this.userData.totalScore += this.score;
+      this.userData.maxPoints += 5;
+      this.userDataService.updateUserData(this.userData);
+    }
   }
 
   giveQuiz() {

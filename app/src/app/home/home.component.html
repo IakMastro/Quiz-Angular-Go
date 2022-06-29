@@ -3,5 +3,8 @@
     <h5 class="card-title">Welcome, {{user.displayName}}!</h5>
     <p class="card-text">Total Score: {{userData.totalScore}}/{{userData.maxPoints}}</p>
     <button class="btn btn-primary" (click)="giveQuiz()">Give New Quiz</button>
+    <ngb-alert style="margin-top: .5rem" [type]="'success'" *ngIf="score != undefined">In the last test you got:
+      {{score}}/5! Thanks
+      for playing</ngb-alert>
   </div>
 </div>

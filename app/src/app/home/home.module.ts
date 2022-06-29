@@ -1,7 +1,7 @@
 import {NgModule}                             from '@angular/core';
 import {CommonModule}                         from '@angular/common';
-import {HomeComponent}                        from './home.component';
-import {NgbPaginationModule}                  from "@ng-bootstrap/ng-bootstrap";
+import {HomeComponent}                       from './home.component';
+import {NgbAlertModule, NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
             declarations: [
@@ -10,6 +10,7 @@ import {NgbPaginationModule}                  from "@ng-bootstrap/ng-bootstrap";
             imports: [
               CommonModule,
               NgbPaginationModule,
+              NgbAlertModule,
             ]
           })
 export class HomeModule {}
